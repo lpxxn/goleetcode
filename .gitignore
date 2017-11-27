@@ -82,6 +82,7 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 .idea/
+/.idea
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
