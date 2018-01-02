@@ -6,9 +6,16 @@ import (
 )
 
 func main() {
-	l1 := &ListNode{2, &ListNode{4, &ListNode{3, nil}}}
+	l1, err := CreateNode(342)
+	if err != nil {
+		panic(err)
+	}
+
+	//l1 = &ListNode{2, &ListNode{4, &ListNode{3, nil}}}
 	fmt.Println(l1)
-	l2 := &ListNode{5, &ListNode{6, &ListNode{4, nil}}}
+
+	l2, err := CreateNode(465)
+	//l2 := &ListNode{5, &ListNode{6, &ListNode{4, nil}}}
 	fmt.Println(l2)
 	rev := addTwoNumbers(l1, l2)
 	fmt.Println(rev)
@@ -76,8 +83,10 @@ func CreateNode(value int) (*ListNode, error) {
 		for value > 0 {
 			current := value % 10
 			currentNode.Next = &ListNode{current, nil}
-			currentNode = node.Next
+			currentNode = currentNode.Next
 			value = value / 10
+			fmt.Println("value : ", value)
+
 		}
 		return node.Next, nil
 	} else {
