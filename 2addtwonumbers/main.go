@@ -86,11 +86,9 @@ func CreateNode(value int) (*ListNode, error) {
 			currentNode = currentNode.Next
 			value = value / 10
 			fmt.Println("value : ", value)
-
 		}
 		return node.Next, nil
 	} else {
-
 		return nil, errors.New("negative number")
 	}
 }
