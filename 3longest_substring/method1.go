@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-func lengthOfLongestSubstring(s string) int {t
+func lengthOfLongestSubstring(s string) int {
 	var strs string = ""
 	var max int = 0
 	for _, item := range s {
