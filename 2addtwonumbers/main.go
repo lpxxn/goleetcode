@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 func main() {
@@ -21,9 +21,8 @@ func main() {
 	fmt.Println(rev)
 }
 
-
 type ListNode struct {
-	Val int
+	Val  int
 	Next *ListNode
 }
 
@@ -35,7 +34,7 @@ func (ln ListNode) String() string {
 	}
 }
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode{
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummyNode := ListNode{0, nil}
 	carry := 0
 	current := &dummyNode
@@ -56,7 +55,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode{
 		sum := x + y + carry
 		current.Next = &ListNode{sum % 10, nil}
 		carry = sum / 10
-		fmt.Println("sum: ", sum, "  sum % 10 = ", sum % 10)
+		fmt.Println("sum: ", sum, "  sum % 10 = ", sum%10)
 		fmt.Println("carry: ", carry, " is sum/10")
 		current = current.Next
 		if l1 != nil {
