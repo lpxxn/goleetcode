@@ -45,8 +45,8 @@ func IToNum(v int) *Num {
 	nextNum := newNum
 	for v > 0 {
 		nextNum.Next = &Num{Val: v % 10}
-		v = v / 10
 		nextNum = nextNum.Next
+		v = v / 10
 	}
 	return newNum.Next
 }
