@@ -10,6 +10,11 @@ func TestAdd(t *testing.T) {
 	v := IToNum(342)
 	fmt.Println(v)
 	fmt.Println(v.ToInt())
+	v = AddTwoNum(IToNum(342), IToNum(465))
+	fmt.Println(v, v.ToInt())
+
+	v = AddTwoNum(IToNum(42), IToNum(65))
+	fmt.Println(v, v.ToInt())
 }
 
 type Num struct {
@@ -52,5 +57,32 @@ func IToNum(v int) *Num {
 }
 
 func AddTwoNum(a, b *Num) *Num {
-	return nil
+	newNum := &Num{}
+	var currentNum *Num
+	currentNum = newNum
+	carry := 0
+	for a != nil || b != nil {
+		x, y := 0, 0
+		if a != nil {
+			x = a.Val
+		}
+		if b != nil {
+			y = b.Val
+		}
+		sum := x + y + carry
+		currentNum.Next = &Num{Val: sum % 10}
+		carry = sum / 10
+		currentNum = currentNum.Next
+
+		if a != nil {
+			a = a.Next
+		}
+		if b != nil {
+			b = b.Next
+		}
+	}
+	if carry > 0 {
+		currentNum.Next = &Num{Val: carry}
+	}
+	return newNum.Next
 }
