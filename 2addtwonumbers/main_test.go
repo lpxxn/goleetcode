@@ -8,8 +8,7 @@ import (
 
 func TestAdd(t *testing.T) {
 	v := IToNum(342)
-	fmt.Println(v)
-	fmt.Println(v.ToInt())
+	fmt.Println(v, v.ToInt())
 	v = AddTwoNum(IToNum(342), IToNum(465))
 	fmt.Println(v, v.ToInt())
 
