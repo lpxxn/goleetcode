@@ -19,6 +19,9 @@ func longestSubString(s string) int {
 	}
 	return longest
 }
+/*
+https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/longest-substring-without-repeating-characters-b-2/
+ */
 
 func max(a, b int) int {
 	if a > b {
