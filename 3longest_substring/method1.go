@@ -6,7 +6,7 @@ import (
 )
 
 func longestSubString(s string) int {
-	m := [128]int{0}
+	m := [128]int{}
 	longest := 0
 	left := 0
 	for right := 0; right < len(s); right++ {
