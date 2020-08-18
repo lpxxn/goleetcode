@@ -19,9 +19,33 @@ func longestSubString(s string) int {
 	}
 	return longest
 }
+
+func longestSubString2(s string) (int, string) {
+	m := [128]int{}
+	longest := 0
+	left := 0
+	leftLongIndex, rightLongIndex := 0, 0
+	for right := 0; right < len(s); right++ {
+		// s[right] 是新遇到的字母
+		// m 是记录字母对应的新位置，
+		// 所以 m[s[right]] 就是新字母对应的新位置
+		left = max(left, m[s[right]])
+		//fmt.Println("lef: ", left, " right: ", right+1)
+		m[s[right]] = right + 1
+		longMax := max(longest, right-left+1)
+		if longMax > longest {
+			leftLongIndex = left
+			rightLongIndex = right + 1
+			longest = longMax
+		}
+	}
+
+	return longest, s[leftLongIndex:rightLongIndex]
+}
+
 /*
 https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/solution/longest-substring-without-repeating-characters-b-2/
- */
+*/
 
 func max(a, b int) int {
 	if a > b {

@@ -1,10 +1,9 @@
 package longest_substring
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
-
 
 func Test_longest(t *testing.T) {
 	fmt.Println(longestSubString("abcabbzycdebfdb"))
@@ -15,13 +14,22 @@ func Test_longest(t *testing.T) {
 	fmt.Println(longestSubString("pwwkew"))
 }
 
+func Test_longestWithStr(t *testing.T) {
+	fmt.Println(longestSubString2("abcabbzycdebfdb"))
+	fmt.Println(longestSubString2("abcabcbb"))
+	fmt.Println(longestSubString2("a"))
+	fmt.Println(longestSubString2("aaaa"))
+	fmt.Println(longestSubString2("ab"))
+	fmt.Println(longestSubString2("dvdf"))
+	fmt.Println(longestSubString2("pwwkew"))
+}
+
 func Test_longest1(t *testing.T) {
 	fmt.Println(lengthOfLongestSubstring("abcabbcbb"))
 	fmt.Println(lengthOfLongestSubstring("a"))
 	fmt.Println(lengthOfLongestSubstring("ab"))
 	fmt.Println(lengthOfLongestSubstring("dvdf"))
 }
-
 
 func Test_longest2(t *testing.T) {
 	fmt.Println(method2("abcabbzycdebfdb"))
