@@ -11,7 +11,7 @@ func longestSubString(s string) int {
 	left := 0
 	for right := 0; right < len(s); right++ {
 		// s[right] 是新遇到的字母
-		// m 是记录字母对应的新位置，
+		// m 是记录字母对应的位置 + 1是因为，如果有重复的，就直接取下一个字母的index 也就是 +1 的index，
 		// 所以 m[s[right]] 就是新字母对应的新位置
 		left = max(left, m[s[right]])
 		m[s[right]] = right + 1
@@ -27,7 +27,7 @@ func longestSubString2(s string) (int, string) {
 	leftLongIndex, rightLongIndex := 0, 0
 	for right := 0; right < len(s); right++ {
 		// s[right] 是新遇到的字母
-		// m 是记录字母对应的新位置，
+		// m 是记录字母对应的位置 + 1是因为，如果有重复的，就直接取下一个字母的index 也就是 +1 的index，
 		// 所以 m[s[right]] 就是新字母对应的新位置
 		left = max(left, m[s[right]])
 		//fmt.Println("lef: ", left, " right: ", right+1)
