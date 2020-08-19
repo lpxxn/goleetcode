@@ -6,6 +6,7 @@ import (
 )
 
 func longestSubString(s string) int {
+	// ASCII 0 -- 127
 	m := [128]int{}
 	longest := 0
 	left := 0
