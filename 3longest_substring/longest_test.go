@@ -7,6 +7,8 @@ import (
 
 func Test_longest(t *testing.T) {
 	fmt.Println(longestSubString("abcabbzycdebfdb"))
+	fmt.Println(myLongest("abcabbzycdebfdb"))
+	fmt.Println(myLongest("abcabcbb"))
 	fmt.Println(longestSubString("a"))
 	fmt.Println(longestSubString("aaaa"))
 	fmt.Println(longestSubString("ab"))
@@ -39,12 +41,14 @@ func Test_longest2(t *testing.T) {
 	fmt.Println(method2("dvdf"))
 }
 
-
-func myLongest(s string) (int, string) {
+func myLongest(s string) int {
 	a := [128]int{}
-	longest := 0
-	maxLeftIdx, maxRightIdx := 0, 0
-	for i, v := range s {
+	longest, left := 0, 0
 
+	for right, item := range s {
+		left = max(left, a[item])
+		a[item] = right + 1
+		longest = max(longest, right-left+1)
 	}
+	return longest
 }
