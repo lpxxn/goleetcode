@@ -38,3 +38,13 @@ func Test_longest2(t *testing.T) {
 	fmt.Println(method2("ab"))
 	fmt.Println(method2("dvdf"))
 }
+
+
+func myLongest(s string) (int, string) {
+	a := [128]int{}
+	longest := 0
+	maxLeftIdx, maxRightIdx := 0, 0
+	for i, v := range s {
+
+	}
+}

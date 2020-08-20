@@ -41,16 +41,14 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	for l1 != nil || l2 != nil {
 		var x, y int
-		if l1 == nil {
-			x = 0
-		} else {
+		if l1 != nil {
 			x = l1.Val
+			l1 = l1.Next
 		}
 
-		if l2 == nil {
-			y = 0
-		} else {
+		if l2 != nil {
 			y = l2.Val
+			l2 = l2.Next
 		}
 		sum := x + y + carry
 		current.Next = &ListNode{sum % 10, nil}
@@ -58,13 +56,6 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		fmt.Println("sum: ", sum, "  sum % 10 = ", sum%10)
 		fmt.Println("carry: ", carry, " is sum/10")
 		current = current.Next
-		if l1 != nil {
-			l1 = l1.Next
-		}
-
-		if l2 != nil {
-			l2 = l2.Next
-		}
 	}
 
 	if carry != 0 {

@@ -64,21 +64,16 @@ func AddTwoNum(a, b *Num) *Num {
 		x, y := 0, 0
 		if a != nil {
 			x = a.Val
+			a = a.Next
 		}
 		if b != nil {
 			y = b.Val
+			b = b.Next
 		}
 		sum := x + y + carry
 		currentNum.Next = &Num{Val: sum % 10}
 		carry = sum / 10
 		currentNum = currentNum.Next
-
-		if a != nil {
-			a = a.Next
-		}
-		if b != nil {
-			b = b.Next
-		}
 	}
 	if carry > 0 {
 		currentNum.Next = &Num{Val: carry}
