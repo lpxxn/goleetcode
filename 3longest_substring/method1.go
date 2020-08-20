@@ -21,6 +21,18 @@ func longestSubString(s string) int {
 	return longest
 }
 
+func longestSubStringN(s string) int {
+	a := [128]int{}
+	longest, left := 0, 0
+
+	for right, item := range s {
+		left = max(left, a[item])
+		a[item] = right + 1
+		longest = max(longest, right-left+1)
+	}
+	return longest
+}
+
 func longestSubString2(s string) (int, string) {
 	m := [128]int{}
 	longest := 0
