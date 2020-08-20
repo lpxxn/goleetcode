@@ -24,7 +24,7 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	middle1 := newArr[index]
 	middle2 := 0
 	if needMiddleTwo {
-		middle2 = newArr[index+1]
+		middle2 = newArr[index-1]
 		return float64(middle1 + middle2) / 2
 	}
 
