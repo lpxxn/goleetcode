@@ -7,17 +7,17 @@ func TestSum(t *testing.T) {
 	revArr := twoSum(nums, 23)
 	t.Log(revArr)
 
-	revArr2 := myTwoSum([]int64{1, 2, 5, 18, 21}, 23)
+	revArr2 := myTwoSum([]int{1, 2, 5, 18, 21}, 23)
 	t.Log(revArr2)
 }
 
-func myTwoSum(a []int64, s int64) []int {
-	m := map[int64]int{}
-	for i, v := range a {
-		if pIdx, ok := m[s-v]; ok {
-			return []int{pIdx, i}
+func myTwoSum(p []int, total int) []int {
+	s := map[int]int{}
+	for i, item := range p {
+		if idx, ok := s[total-item]; ok {
+			return []int{idx, i}
 		}
-		m[v] = i
+		s[item] = i
 	}
 	return nil
 }
