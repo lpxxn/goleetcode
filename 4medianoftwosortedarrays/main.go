@@ -16,7 +16,6 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		needMiddleTwo = true
 	}
 
-
 	newArr := append(nums1, nums2...)
 	sort.Ints(newArr)
 
