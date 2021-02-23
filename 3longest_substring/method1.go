@@ -33,7 +33,7 @@ func longestSubStringN(s string) int {
 	return longest
 }
 
-func lengthOfLongestSubstring(s string) int {
+func lengthOfLongestSubstringT(s string) int {
 	// making a map the go way
 	m := make(map[byte]int)
 	res := 0
