@@ -33,6 +33,23 @@ func longestSubStringN(s string) int {
 	return longest
 }
 
+func lengthOfLongestSubstring(s string) int {
+	// making a map the go way
+	m := make(map[byte]int)
+	res := 0
+
+	for l, r := 0, 0; r < len(s); r++ {
+		if index, ok := m[s[r]]; ok {
+			// only update the left pointer if
+			// it's behind the last position of the visited character
+			l = max(l, index)
+		}
+		res = max(res, r-l+1)
+		m[s[r]] = r + 1
+	}
+	return res
+}
+
 func longestSubString2(s string) (int, string) {
 	m := [128]int{}
 	longest := 0
