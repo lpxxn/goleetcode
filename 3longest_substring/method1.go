@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// 0 ms
 func longestSubString(s string) int {
 	// ASCII 0 -- 127
 	m := [128]int{}
@@ -21,6 +22,7 @@ func longestSubString(s string) int {
 	return longest
 }
 
+/// 12ms
 func longestSubStringN(s string) int {
 	a := [128]int{}
 	longest, left := 0, 0
