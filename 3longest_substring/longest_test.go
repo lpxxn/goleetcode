@@ -60,7 +60,7 @@ func Test_f(t *testing.T) {
 }
 
 func f(s string) int {
-	a := map[byte]int{}
+	a := [128]int{}
 	longest := 0
 	for left, right := 0, 0; right < len(s); right++ {
 		left = max(left, a[s[right]])
