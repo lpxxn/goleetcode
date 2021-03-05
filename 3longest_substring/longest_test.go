@@ -56,17 +56,20 @@ func myLongest(s string) int {
 
 func Test_f(t *testing.T) {
 	t.Log(f("aaaa"))
-	t.Log(f("abcda"))
+	t.Log(f("abcdaf"))
 }
 
-func f(s string) int {
+func f(s string) (int, string) {
 	a := [128]int{}
 	longest := 0
+	revStr := ""
 	for left, right := 0, 0; right < len(s); right++ {
 		left = max(left, a[s[right]])
 		a[s[right]] = right + 1
 		longest = max(longest, right-left+1)
-
+		if len(revStr) < longest {
+			revStr = s[left : right+1]
+		}
 	}
-	return longest
+	return longest, revStr
 }
