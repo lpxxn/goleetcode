@@ -39,6 +39,7 @@ func Test_longest2(t *testing.T) {
 	fmt.Println(method2("a"))
 	fmt.Println(method2("ab"))
 	fmt.Println(method2("dvdf"))
+
 }
 
 func myLongest(s string) int {
@@ -49,6 +50,23 @@ func myLongest(s string) int {
 		left = max(left, a[item])
 		a[item] = right + 1
 		longest = max(longest, right-left+1)
+	}
+	return longest
+}
+
+func Test_f(t *testing.T) {
+	t.Log(f("aaaa"))
+	t.Log(f("abcda"))
+}
+
+func f(s string) int {
+	a := map[byte]int{}
+	longest := 0
+	for left, right := 0, 0; right < len(s); right++ {
+		left = max(left, a[s[right]])
+		a[s[right]] = right + 1
+		longest = max(longest, right-left+1)
+
 	}
 	return longest
 }
