@@ -5,11 +5,11 @@ import "testing"
 func TestMergeArray(t *testing.T) {
 	a1 := []int{1, 2, 3, 0, 0, 0}
 	a2 := []int{0, 5, 6}
-	r := mergeArray(a1, 3, a2, 3)
-	t.Log(r)
+	mergeArray(a1, 3, a2, 3)
+	t.Log(a1)
 }
 
-func mergeArray(nums1 []int, m int, nums2 []int, n int) []int {
+func mergeArray(nums1 []int, m int, nums2 []int, n int) {
 	m--
 	n--
 	last := len(nums1) - 1
@@ -23,10 +23,10 @@ func mergeArray(nums1 []int, m int, nums2 []int, n int) []int {
 		}
 		last--
 	}
-	return nums1
 }
 
 /*
+下面是javascript的
 双指针 - 从后向前
 思路: 开局先让m和n各自减1, 因为数组索引是从0开始的, 然后索引i用来从后向前遍历nums1
 
