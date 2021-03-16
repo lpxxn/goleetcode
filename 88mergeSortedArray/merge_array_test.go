@@ -13,7 +13,9 @@ func TestMergeArray(t *testing.T) {
 	a3 := []int{1, 2, 3, 0, 0, 0}
 	mergeArr(a3, 3, a2, 3)
 	t.Log(reflect.DeepEqual(a1, a3))
-
+	a3 = []int{1, 2, 3, 0, 0, 0}
+	mergeArr(a3, 3, []int{0, 1, 5}, 3)
+	t.Log(a3)
 }
 
 func mergeArr(a []int, m int, b []int, n int) {
