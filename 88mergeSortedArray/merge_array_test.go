@@ -23,14 +23,15 @@ func mergeArr(a []int, m int, b []int, n int) {
 	for n >= 0 {
 		if m >= 0 && a[m] > b[n] {
 			a[lenA] = a[m]
-			lenA--
+			//lenA--
 			m--
 		} else {
-		//if a[m] < b[n] {
+			//if a[m] < b[n] {
 			a[lenA] = b[n]
-			lenA--
+			//lenA--
 			n--
 		}
+		lenA--
 	}
 }
 
