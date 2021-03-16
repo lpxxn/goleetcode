@@ -1,15 +1,38 @@
 package mergeSortedArray
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestMergeArray(t *testing.T) {
 	a1 := []int{1, 2, 3, 0, 0, 0}
 	a2 := []int{0, 5, 6}
-	mergeArray(a1, 3, a2, 3)
+	MergeTwoArray(a1, 3, a2, 3)
 	t.Log(a1)
+	a3 := []int{1, 2, 3, 0, 0, 0}
+	mergeArr(a3, 3, a2, 3)
+	t.Log(reflect.DeepEqual(a1, a3))
+
 }
 
-
+func mergeArr(a []int, m int, b []int, n int) {
+	m--
+	n--
+	lenA := len(a) - 1
+	for n >= 0 {
+		if m >= 0 && a[m] > b[n] {
+			a[lenA] = a[m]
+			lenA--
+			m--
+		} else {
+		//if a[m] < b[n] {
+			a[lenA] = b[n]
+			lenA--
+			n--
+		}
+	}
+}
 
 /*
 下面是javascript的

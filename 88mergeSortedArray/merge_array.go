@@ -1,6 +1,6 @@
 package mergeSortedArray
 
-func mergeArray(nums1 []int, m int, nums2 []int, n int) {
+func MergeTwoArray(nums1 []int, m int, nums2 []int, n int) {
 	m--
 	n--
 	last := len(nums1) - 1
