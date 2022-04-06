@@ -24,12 +24,12 @@ func longestSubString(s string) int {
 
 /// 12ms
 func longestSubStringN(s string) int {
-	a := [128]int{}
+	m := [128]int{}
 	longest, left := 0, 0
 
 	for right, item := range s {
-		left = max(left, a[item])
-		a[item] = right + 1
+		left = max(left, m[item])
+		m[item] = right + 1
 		longest = max(longest, right-left+1)
 	}
 	return longest
@@ -60,6 +60,7 @@ func longestSubString2(s string) (int, string) {
 	for right := 0; right < len(s); right++ {
 		// s[right] 是新遇到的字母
 		// m 是记录字母对应的位置 + 1是因为，如果有重复的，就直接取下一个字母的index 也就是 +1 的index，
+		// abac  第二次遇到a时 left 应该是 b的位置
 		// 所以 m[s[right]] 就是新字母对应的新位置
 		left = max(left, m[s[right]])
 		//fmt.Println("lef: ", left, " right: ", right+1)
