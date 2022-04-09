@@ -4,7 +4,8 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 
 **Example:**
 ```
-Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
-Explanation: 342 + 465 = 807.
+输入：      342 + 465
+转换:      (2 -> 4 -> 3) + (5 -> 6 -> 4)
+每一位相加: 7 -> 0 -> 8
+例子: 342 + 465 = 807.
 ```
