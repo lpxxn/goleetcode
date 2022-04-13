@@ -6,8 +6,67 @@ import "testing"
 Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
+
+4656 + 5345 =
 */
 
+func TestAddTwoNum(t *testing.T) {
+	a, b := newNum(342), newNum(465)
+	c := addTowNun(a, b)
+	t.Log(c.toInt())
+
+	a, b = newNum(4656), newNum(5345)
+	c = addTowNun(a, b)
+	t.Log(c.toInt())
+}
+
+type Num struct {
+	val  int
+	next *Num
+}
+
+func newNum(v int) *Num {
+	if v == 0 {
+		return nil
+	}
+	current := &Num{val: v % 10}
+	current.next = newNum(v / 10)
+	return current
+}
+
+func (n *Num) toInt() int {
+	if n == nil {
+		return 0
+	}
+	return n.val + n.next.toInt()*10
+}
+
+func addTowNun(a, b *Num) *Num {
+	carry := 0
+	rev := &Num{}
+	current := rev
+	for a != nil || b != nil {
+		v1, v2 := 0, 0
+		if a != nil {
+			v1 = a.val
+			a = a.next
+		}
+		if b != nil {
+			v2 = b.val
+			b = b.next
+		}
+		sum := v1 + v2 + carry
+		current.next = &Num{val: sum % 10}
+		carry = sum / 10
+		current = current.next
+	}
+	if carry > 0 {
+		current.next = &Num{val: carry}
+	}
+	return rev.next
+}
+
+/*  24
 type NumList struct {
 	val  int
 	next *NumList
@@ -65,6 +124,8 @@ func TestAddTwoNum(t *testing.T) {
 	t.Log(c.ToInt())
 }
 
+
+*/
 //type Num struct {
 //	val  int
 //	next *Num
