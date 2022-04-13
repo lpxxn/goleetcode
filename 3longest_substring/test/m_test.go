@@ -20,6 +20,61 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 
 // Given a string, find the length of the longest substring without repeating characters
 
+func TestStrLength(t *testing.T) {
+	t.Log(longestSubString2("abcabcbb"))
+	//t.Log(longestSubString("bbbbb"))
+	//t.Log(longestSubString("pwwkew"))
+	//fmt.Println(lengthOfLongestSubstring("abcabbzycdebfdb"))
+	t.Log(longestSubString("abcabbzycdebfdb"))
+	t.Log(longestSubString2("abcabbzycdebfdb"))
+
+}
+
+func longestSubString(s string) int {
+	m := [127]int{}
+	left := 0
+	longest := 0
+	for right := 0; right < len(s); right++ {
+		//fmt.Println(string(s[right]))
+		idx := m[s[right]]
+		if idx > 0 {
+			left = max(left, idx)
+		}
+		m[s[right]] = right + 1
+		longest = max(longest, right-left+1)
+	}
+	return longest
+}
+
+func longestSubString2(s string) int {
+	m := [127]int{}
+	left := 0
+	longest, longestLeft, longestRight := 0, 0, 0
+	for right := 0; right < len(s); right++ {
+		//fmt.Println(string(s[right]))
+		idx := m[s[right]]
+		if idx > 0 {
+			left = max(left, idx)
+		}
+		m[s[right]] = right + 1
+		currentLongest := max(longest, right-left+1)
+		if currentLongest > longest {
+			longest = currentLongest
+			longestLeft = left
+			longestRight = right + 1
+		}
+	}
+	fmt.Println(s[longestLeft:longestRight])
+	return longest
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
 func TestStr1(t *testing.T) {
 	fmt.Println(lengthOfLongestSubstring("abcabbzycdebfdb"))
 	fmt.Println(lengthOfLongestSubstring("abcabcbb"))
