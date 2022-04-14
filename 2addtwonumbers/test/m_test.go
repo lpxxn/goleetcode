@@ -3,11 +3,12 @@ package test
 import "testing"
 
 /*
-Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
-Explanation: 342 + 465 = 807.
-
-4656 + 5345 =
+例子： 342 + 465 = 807.
+转换: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+每一位相加，过10进1
+结果: 7 -> 0 -> 8 = 807
+eg:
+4656 + 5345 = 10001
 */
 
 func TestAddTwoNum(t *testing.T) {
