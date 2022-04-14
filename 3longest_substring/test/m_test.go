@@ -35,7 +35,6 @@ func longestSubString(s string) int {
 	left := 0
 	longest := 0
 	for right := 0; right < len(s); right++ {
-		//fmt.Println(string(s[right]))
 		idx := m[s[right]]
 		if idx > 0 {
 			left = max(left, idx)
