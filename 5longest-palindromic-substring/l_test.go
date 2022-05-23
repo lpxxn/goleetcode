@@ -32,6 +32,7 @@ import "testing"
 // Related Topics 字符串 动态规划 👍 5062 👎 0
 
 func TestV1(t *testing.T) {
+	t.Log(longestPalindrome("abc"))
 	t.Log(longestPalindrome("aa"))
 	t.Log(longestPalindrome("cbbd"))
 	t.Log(longestPalindrome("babad"))
