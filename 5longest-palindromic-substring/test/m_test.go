@@ -1,6 +1,8 @@
 package test
 
-func longestPalindromic(s string) string {
+import "testing"
+
+func longestPalindromicSubstring(s string) string {
 	if len(s) < 2 {
 		return s
 	}
@@ -18,19 +20,25 @@ func longestPalindromic(s string) string {
 	return s[start : start+maxLen]
 }
 
-func max(len1 int, len2 int) int {
-	if len1 > len2 {
-		return len1
+func max(a, b int) int {
+	if a > b {
+		return a
 	}
-	return len2
+	return b
 }
 
-func expandAroundCenter(s string, left, right int) int {
-	for left >= 0 && right < len(s) && s[left] == s[right] {
-		left--
-		right++
+func expandAroundCenter(s string, l int, r int) int {
+	for l >= 0 && r < len(s) && s[l] == s[r] {
+		l--
+		r++
 	}
-	return right - left - 1
+	return r - l - 1
+}
+
+func TestName(t *testing.T) {
+	t.Log(longestPalindromicSubstring("babad"))
+	t.Log(longestPalindromicSubstring("cbbd"))
+	t.Log(longestPalindromicSubstring("abcdefedcba"))
 }
 
 /*
