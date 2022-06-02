@@ -6,15 +6,15 @@ func longestPalindromicSubstring(s string) string {
 	if len(s) < 2 {
 		return s
 	}
-	var maxLen int
-	var start int
+	start := 0
+	maxLen := 0
 	for i := 0; i < len(s); i++ {
 		len1 := expandAroundCenter(s, i, i)
 		len2 := expandAroundCenter(s, i, i+1)
-		len := max(len1, len2)
-		if len > maxLen {
-			maxLen = len
-			start = i - (len-1)/2
+		currentLen := max(len1, len2)
+		if currentLen > maxLen {
+			start = i - (currentLen-1)/2
+			maxLen = currentLen
 		}
 	}
 	return s[start : start+maxLen]
