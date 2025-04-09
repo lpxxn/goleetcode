@@ -9,6 +9,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+/*
+1.	转换成“分”单位，避免浮点误差。
+2. 红包的下限为 100 分（1 元），上限为 m * 30%。
+3. 使用随机分配，注意剩余金额必须满足剩下的人都能分到最小值。
+4. 使用循环每次随机一个合理金额。
+*/
 func splitBouns(total float64, n int) ([]float64, error) {
 	if total <= 0 || n <= 0 {
 		return nil, fmt.Errorf("money or people num is invalid")
@@ -32,12 +38,12 @@ func splitBouns(total float64, n int) ([]float64, error) {
 		// - 上限 max
 		// - 剩余金额 - （剩下的人数 * 最小值）
 		curMax := max
-		maxAllow := totalCents - (remain-1)*min
+		maxAllow := totalCents - (remain-1)*min // 把剩下人的最小值都取走,保证剩下的人都能分到最小值
 		if curMax > maxAllow {
 			curMax = maxAllow
 		}
 		// 随机红包金额
-		money := rand.Intn(curMax-min) + min
+		money := rand.Intn(curMax-min) + min // 生成一个 [min, curMax) 区间内的随机红包金额
 		result = append(result, float64(money)/100)
 		totalCents -= money
 	}
