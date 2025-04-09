@@ -83,12 +83,8 @@ fabric.properties
 .idea/sonarlint
 .idea/
 /.idea
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 .history
+
+vendor
 
 # End of https://www.gitignore.io/api/go,jetbrains,visualstudiocode
